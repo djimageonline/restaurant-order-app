@@ -6,9 +6,12 @@ body {
 
 /* typography and icons */
 
-h1, p {
+h1, h2, p {
     margin: 0;
 }
+
+/* buttons */
+
 
 
 /* layout */
@@ -60,20 +63,27 @@ footer {
     display: flex;
     align-items: center;
     justify-content:center;
-    gap: 10px;
-    background-color: brown;
     margin-top: 10px;
     width: 600px;
     margin-left: auto;
     margin-right: auto;
+    border-bottom: 1px solid #D2D2D2;
+    gap: 10px;
+}
+
+.menu-item-detail{
+line-height: 30px;
 }
 
 .menu-item-container {
+    display: flex;
     width: 508px;
     height: 140px;
-    background-color: rgb(168, 247, 247);
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
+    margin-left: 20px;
+    justify-content:  center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Media Queries */
@@ -114,7 +124,6 @@ footer {
 
     .menu-item-container {
         height: 140px;
-        background-color: aqua;
     }
 
 }
