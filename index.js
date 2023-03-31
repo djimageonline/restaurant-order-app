@@ -8,9 +8,9 @@ function getOrderMenuHtml() {
     <div class="menu-item">
       <div class="menu-item-inner">
         <div class="menu-item-container">
-        <h2 class="name">${menuItem.name}</h2>
-        <p class="ingredients">${menuItem.ingredients}</p>
-        <p class="price">$${menuItem.price}</p>
+          <h2 class="name">${menuItem.name}</h2>
+          <p class="ingredients">${menuItem.ingredients}</p>
+          <p class="price">$${menuItem.price}</p>
         </div>
       </div>
     </div>
