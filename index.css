@@ -50,7 +50,23 @@ footer {
     margin-right: auto;
 }
 
-/*  */
+/* menu */
+
+.emoji {
+    font-size: 78px;
+}
+
+.menu-item-inner{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 10px;
+    background-color: brown;
+    margin-top: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .menu-item-container {
     width: 508px;
@@ -65,46 +81,42 @@ footer {
 @media (max-width: 1000px) {
     body {
         margin: 0 auto;
-        width: 600px;
         text-align: center;
     } 
 
-    main, header{
+    body, 
+    header, 
+    main, 
+    .menu-item-inner, 
+    footer  {
         width: 600px;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    footer {
-        width: 600px;
     }
 }
 
 @media (max-width: 600px) {
     body {
         margin: 0 auto;
-        width: 400px;
         text-align: center;
     } 
 
-    main, header{
-        width: 400px;
+    body, 
+    header, 
+    main, 
+    .menu-item-inner, 
+    .menu-item-container,
+    footer  {
+        width: 375px;
         margin-left: auto;
         margin-right: auto;
     }
 
     .menu-item-container {
-        width: 400px;
         height: 140px;
         background-color: aqua;
-        margin-left: auto;
-        margin-right: auto;
     }
 
-
-    footer {
-        width: 400px;
-    }
 }
 
 
