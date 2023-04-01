@@ -2,28 +2,40 @@ import { menuArray } from "/data.js";
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
-    console.log(e.target.dataset);
     handleAddMenuItem(e.target.dataset.add);
   }
 });
 
 function handleAddMenuItem(addId) {
+  let test = "";
   const menuItemObject = menuArray.filter(function (menuItem) {
-    console.log("menuObj:", menuItem.id, "addbtn:", addId);
     return menuItem.id === Number(addId);
   })[0];
 
-  console.log(menuItemObject);
+  // console.log(menuItemObject);
+
+  test += ` 
+  <div class="your-order-items" id="your-order-items">
+  <div class ="your-order-items-inner">
+    <h2> Your Order </h2>
+    <div></div>
+    <p>${menuItemObject.name} </p>
+    <p>${menuItemObject.price} </p>
+  </div>
+</div>
+  `;
+  return test;
 }
 
 function getOrderMenuHtml() {
   let orderHtml = "";
+  let renderYourOrder = "";
 
   menuArray.forEach(function (menuItem) {
     orderHtml += `
     <div class="menu-item">
       <div class="menu-item-inner">
-        <p class="emoji">${menuItem.emoji}</p>
+        <img src="${menuItem.image}" class="image">
         <div class="menu-item-container">
           <span class="menu-item-detail">
             <h2 class="name">${menuItem.name}</h2>
@@ -34,14 +46,15 @@ function getOrderMenuHtml() {
         <img class="add-btns" src="img/add-btn.png" data-add="${menuItem.id}"></img>
       </div>
     </div>
-    
     `;
+    console.log(handleAddMenuItem);
   });
   return orderHtml;
 }
 
 function render() {
   document.getElementById("order-menu").innerHTML = getOrderMenuHtml();
+  // document.getElementById("your-order").innerHTML =
 }
 
 render();
