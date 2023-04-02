@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order App</title>
+    <title>JP's Tavern</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
        <link rel="stylesheet" href="index.css">
 </head>
@@ -17,7 +17,16 @@
     </header>
     <main>
         <div class="order-menu" id="order-menu"></div>
-        <div class="your-order" id="your-order"></div>
+            <div class="your-order hidden" id="your-order">
+                <h2> Your Order </h2>
+                <div class="your-order-item" id="your-order-item">
+                </div>
+                <div class ="order-total">
+                    <p>Total</p>
+                    <p>$0</p>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>Jimmy’s Diner @2002</p>

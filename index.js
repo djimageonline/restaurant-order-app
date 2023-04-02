@@ -1,35 +1,51 @@
 import { menuArray } from "/data.js";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+
+let yourOrderArray = [];
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
-    handleAddMenuItem(e.target.dataset.add);
+    document.getElementById("your-order-item").innerHTML = handleAddMenuItem(e.target.dataset.add);
+    document.getElementById("your-order").classList.remove("hidden");
+  } else if (e.target.dataset.remove) {
+    removeItemFromOrder(e.target.dataset.remove);
   }
 });
 
 function handleAddMenuItem(addId) {
-  let test = "";
-  const menuItemObject = menuArray.filter(function (menuItem) {
-    return menuItem.id === Number(addId);
+  let addItem = "";
+
+  yourOrderArray.push(menuArray[addId]);
+
+  yourOrderArray.forEach(function (orderItem) {
+    addItem += ` 
+        <div class="order-item">
+          <p>${orderItem.name} </p>
+          <p>$${orderItem.price} </p>
+          <button class="remove-btn" data-remove="${orderItem.id}">remove</button>
+        </div>
+          `;
+  });
+  console.log(yourOrderArray);
+  return addItem;
+}
+
+function removeItemFromOrder(removeItemId) {
+  const removeItemObj = yourOrderArray.filter(function (item) {
+    return item.id === Number(removeItemId);
   })[0];
 
-  // console.log(menuItemObject);
+  console.log(yourOrderArray);
+  let indexOfObject = yourOrderArray.indexOf(removeItemObj);
+  yourOrderArray.splice(indexOfObject, 1);
 
-  test += ` 
-  <div class="your-order-items" id="your-order-items">
-  <div class ="your-order-items-inner">
-    <h2> Your Order </h2>
-    <div></div>
-    <p>${menuItemObject.name} </p>
-    <p>${menuItemObject.price} </p>
-  </div>
-</div>
-  `;
-  return test;
+  console.log(yourOrderArray);
+
+  render();
 }
 
 function getOrderMenuHtml() {
   let orderHtml = "";
-  let renderYourOrder = "";
 
   menuArray.forEach(function (menuItem) {
     orderHtml += `
@@ -47,14 +63,12 @@ function getOrderMenuHtml() {
       </div>
     </div>
     `;
-    console.log(handleAddMenuItem);
   });
   return orderHtml;
 }
 
 function render() {
   document.getElementById("order-menu").innerHTML = getOrderMenuHtml();
-  // document.getElementById("your-order").innerHTML =
 }
 
 render();
