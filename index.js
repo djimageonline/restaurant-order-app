@@ -1,6 +1,6 @@
 import { menuArray } from "/data.js";
 
-let totalAmount = document.getElementById("total-amount");
+const totalAmount = document.getElementById("total-amount");
 let yourOrderArray = [];
 
 document.addEventListener("click", function (e) {
@@ -10,7 +10,9 @@ document.addEventListener("click", function (e) {
   } else if (e.target.dataset.remove) {
     removeItemFromOrder(e.target.dataset.remove);
   } else if (e.target.dataset.submit) {
-    handleSubmitOrderPayModal(e.target.dataset.submit);
+    handleCompleteOrderPayModal(e.target.dataset.submit);
+  } else if (e.target.id === "pay") {
+    handlePayModalButton();
   }
 });
 
@@ -67,15 +69,15 @@ function getTotalForYourOrder() {
   totalAmount.innerHTML = `$${totalSum}`;
 }
 
-function handleSubmitOrderPayModal() {
+function handleCompleteOrderPayModal() {
   document.getElementById("pay-modal").classList.remove("hidden");
   const payModal = document.getElementById("pay-modal");
   let form = "";
 
   form += `
   <h2>Enter Card Details</h2>
+  <p class="need-info-pay" id="need-info-pay"><p>
    <div class ="pay-modal-inner">
-   <form>
       <input 
         type="text"
         name="name"
@@ -97,11 +99,34 @@ function handleSubmitOrderPayModal() {
         placeholder="Enter CVV"
         required
       >
-    </form>
    </div>
    <button class="pay" id="pay">Pay</button>  
   `;
   payModal.innerHTML = form;
+}
+
+function handlePayModalButton() {
+  let enterName = document.getElementById("name").value;
+  let cardNumber = document.getElementById("card").value;
+  let cvvNumber = document.getElementById("cvv").value;
+  let thanksComplete = document.getElementById("thanks-complete");
+
+  let thanksMessage = `
+  <p class="thanks-message">Your order is complete!</p>
+  `;
+
+  if (enterName === "" || cardNumber === "" || cvvNumber === "") {
+    handleNoInfoInPay();
+  } else {
+    document.getElementById("pay-modal").style.display = "none";
+    document.getElementById("your-order").style.display = "none";
+    thanksComplete.innerHTML = thanksMessage;
+  }
+}
+
+function handleNoInfoInPay() {
+  const needInfoPay = document.getElementById("need-info-pay");
+  needInfoPay.innerHTML = "** Please Enter Info **";
 }
 
 function getOrderMenuHtml() {

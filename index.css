@@ -189,6 +189,19 @@ line-height: 30px;
     margin-bottom: 20px;
 }
 
+.need-info-pay{
+    margin-top: 5px;
+    margin-bottom: -30px;
+    color: red;
+}
+
+.thanks-message{
+    background-color: #ECFDF5;
+    color: #064E3B;
+    font-size: 30px;
+    padding: 20px;
+    margin-top: 20px;
+}
 
 /* Media Queries */
 
@@ -208,6 +221,18 @@ line-height: 30px;
         width: 600px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .pay-modal {
+        position: absolute;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 0px 60px 20px black;
+        background-color: white;
+        bottom: 40px;
+        left: 50px;
+        width: 500px;
+        height: 450px;
     }
 }
 
@@ -232,6 +257,29 @@ line-height: 30px;
 
     .menu-item-container {
         height: 140px;
+    }
+
+    .pay-modal {
+        position: absolute;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 0px 60px 5px black;
+        background-color: white;
+        bottom: 40px;
+        left: 0px;
+        width: 375px;
+        height: 450px;
+    }
+
+    .pay-modal-inner input {
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+
+    .pay {
+        width: 320px;
     }
 
 }
