@@ -12,6 +12,27 @@ h1, h2, p {
 
 /* buttons */
 
+.submit-order, .pay {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 200px;
+    background-color: #16DB99;
+    color: white
+}
+
+.pay {
+    width: 415px;
+}
+
+.submit-order:hover{
+    background-color: #0f835c;
+}
+
+.pay:hover{
+    background-color: #0f835c;
+}
 
 
 /* layout */
@@ -31,6 +52,7 @@ main, header{
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 
@@ -92,6 +114,10 @@ line-height: 30px;
     display: none;
 }
 
+.order-menu{
+    margin-bottom: 15px;
+}
+
 
 .your-order-item{
     width: 600px;
@@ -127,11 +153,41 @@ line-height: 30px;
     border: none;
     background-color: white;
     font-size: 12px;
+    
 }
 
 
+/* Pay Modal */
+
+.pay-modal {
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 60px 20px black;
+    background-color: white;
+    bottom: 40px;
+    left: 250px;
+    width: 500px;
+    height: 450px;
+}
+
+.pay-modal-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+.pay-modal h2 {
+    margin-top: 50px;
+}
 
 
+.pay-modal-inner input {
+    width: 400px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
 
 
 /* Media Queries */

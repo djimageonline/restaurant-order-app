@@ -1,14 +1,14 @@
 export const menuArray = [
   {
     name: "Pizza",
-    ingredients: ["pepperoni", "mushrom", "mozarella"],
+    ingredients: ["pepperoni, mushroom, mozarella"],
     id: 0,
     price: 14,
     image: "img/pizza.jpg",
   },
   {
     name: "Hamburger",
-    ingredients: ["beef", "cheese", "lettuce"],
+    ingredients: ["beef, cheese, lettuce"],
     price: 12,
     image: "img/burger.jpg",
     id: 1,
